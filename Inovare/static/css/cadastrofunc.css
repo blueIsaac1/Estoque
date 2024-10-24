@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-image: url('/static/images/fundoDeitado.png'); /* Certifique-se de que esta imagem está no diretório correto */
+    background-size: cover;
+    height: 100vh;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.img1 {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+}
+
+header h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.botao-inicio {
+    background-color: #9d1d1d;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-inicio:hover {
+    background-color: #7a1414;
+}
+
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 900px;
+    margin: 120px auto 20px auto;
+    overflow: hidden;
+}
+
+.image-barcode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.image-barcode-container h1 {
+    margin-left: 50px;
+}
+
+.cadastro-image {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    flex: 1;
+}
+
+h1 {
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #ffffff60;
+    color: #000;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+    background-color: #dddddd41;
+    color: #000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-left ul li {
+    margin-bottom: 10px;
+}
+
+.footer-left ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer-right {
+    width: 400px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.footer-right p {
+    margin: 0;
+}
+
+.footer-left ul li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.img2 {
+    width: 12%;
+    height: auto;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 100px;
+}
+

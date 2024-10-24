@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-image: url('/static/images/fundoDeitado.png');
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: block;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.img1 {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+}
+
+header h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.botao-inicio {
+    background-color: #9d1d1d;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-inicio:hover {
+    background-color: #7a1414;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 50px;
+}
+
+.footer-left ul li {
+    margin-bottom: 10px;
+}
+
+.footer-left ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer-right {
+    width: 400px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.footer-right p {
+    margin: 0;
+}
+
+.footer-left ul li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.footer-center {
+    text-align: center;
+    flex: 1;
+}
+
+.img2 {
+    width: 12%;
+    height: auto; /* Mantém a proporção */
+}
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #000000;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 30%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-color: #000000;
+    border-radius: 10px;
+    background-color: #ffffff1c;
+    color: #000000;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #681416;
+}
+
+#grafico-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+}
+
+button {
+    padding: 10px 40px;
+    border-color: #000000;
+    border-radius: 10px;
+    background-color: #ffffff80;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 230px;
+}

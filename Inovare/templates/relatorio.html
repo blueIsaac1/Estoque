@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Relatório</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/relatorio.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{%static 'js/relatorio.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <img class="img1" src="/static/images/logoBranca.png" alt="Logo">
+        <h3>Inovare Estoque Almoxarifado</h3>
+        <a href="/inicioadmin/" class="botao-inicio">Voltar à Página Inicial</a>
+    </header>
+    <div class="container">
+        <h2>Relatório</h2>
+
+        <div class="info-geral">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="responsavel">Responsável:</label>
+            <input type="text" id="responsavel" name="responsavel" required>
+
+            <label for="resumo">Resumo do Estoque:</label>
+            <textarea id="resumo" name="resumo" rows="4" required></textarea>
+
+            <label for="total_itens">Total de Itens:</label>
+            <input type="number" id="total_itens" name="total_itens" required>
+
+            <label for="valor_total">Valor Total (R$):</label>
+            <input type="number" id="valor_total" name="valor_total" step="0.01" required>
+        </div>
+
+        <h2>Detalhe:</h2>
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" required>
+
+        <label for="codigo_barra">Código de Barra:</label>
+        <input type="text" id="codigo_barra" required>
+
+        <label for="descricao">Descrição do Item:</label>
+        <input type="text" id="descricao" required>
+
+        <label for="custo_unidade">Custo Unidade:</label>
+        <input type="number" id="custo_unidade" step="0.01" required>
+
+        <label for="estoque">Estoque:</label>
+        <input type="number" id="estoque" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" required>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" step="0.01" required>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Código de Barra</th>
+                    <th>Descrição do Item</th>
+                    <th>Custo Unidade</th>
+                    <th>Estoque</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="detalhes-estoque">
+            </tbody>
+        </table>
+
+        <h2>Movimentação</h2>
+        <label for="entrada">Entrada:</label>
+        <input type="text" id="entrada">
+
+        <label for="saida">Saída:</label>
+        <input type="text" id="saida">
+
+        <h2>Análise Rápida</h2>
+        <textarea id="analise_rapida"></textarea>
+
+        <label for="recomendacoes">Recomendações:</label>
+        <input type="text" id="recomendacoes">
+
+        <label for="notas">Notas:</label>
+        <input type="text" id="notas">
+
+        <h2>Gráfico</h2>
+        <div id="grafico-container">
+            <canvas id="grafico" width="400" height="400"></canvas>
+        </div>
+
+        <form method="POST" id="relatorio-form">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renderiza todos os campos do formulário -->
+            <button type="submit">Salvar Relatório</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <ul class="contact-info">
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="/static/images/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/"><img src="/static/images/facebook.png" alt="Facebook"></a>
+                        <a href="https://bsky.app/"><img src="/static/images/bluesky.png" alt="Bluesky"></a>
+                    </li>
+                    <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                    <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+                </ul>
+            </div>
+            <img class="img2" src="/static/images/logoBranca.png" alt="Logo">
+            <div class="footer-right">
+                <p>
+                    Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
