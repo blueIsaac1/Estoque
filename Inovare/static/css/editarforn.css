@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     background-image: url('/static/images/fundoDeitado.png');
-    background-size: cover;
+    background-size: 100%;
     height: 100vh;
     margin: 0;
     display: block;
@@ -36,7 +42,7 @@ header h3 {
 }
 
 .botao-inicio {
-    background-color: #9d1d1d;
+    background-color: #681413;
     color: white;
     padding: 10px 10px;
     border: none;
@@ -48,7 +54,7 @@ header h3 {
 }
 
 .botao-inicio:hover {
-    background-color: #7a1414;
+    background-color: #9a1915;
 }
 
 footer {
@@ -56,7 +62,7 @@ footer {
     color: white;
     padding: 20px 0;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 175px;
 }
 
 .footer-container {
@@ -109,61 +115,76 @@ footer {
 
 .img2 {
     width: 12%;
-    height: auto; /* Mantém a proporção */
+    height: auto;
 }
 
-.container {
-    padding: 20px;
-    border-radius: 10px;
-}
-
-h2 {
-    color: #000000;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input, textarea {
-    width: 30%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-color: #000000;
-    border-radius: 10px;
-    background-color: #ffffff1c;
-    color: #000000;
-}
-
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #681416;
-}
-
-#grafico-container {
-    margin-top: 30px;
+.main-container {
     display: flex;
-    justify-content: center;
-    width: 400px;
-    height: 400px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 900px;
+    margin: 100px auto 20px auto;
+    flex: 1;
 }
 
-button {
-    padding: 10px 40px;
-    border-color: #000000;
-    border-radius: 10px;
-    background-color: #ffffff80;
-    color: #000000;
+.cadastro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro da seção */
+}
+
+.title {
+    color: black; /* Cor do texto */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    margin-left: -35%;
+}
+
+.cadastro-image {
+    width: 300px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Manter proporção */
+    margin-right: 180px;
+    margin-bottom: 20px; /* Espaço abaixo da imagem */
+}
+
+.form-container {
+    flex: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+input[type="text"], select, input[type="date"] {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 100%;
     font-size: 16px;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"] {
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 4px;
     cursor: pointer;
+    background-color: #ffffff80;
+    color: #000;
+    font-size: 16px;
     margin-top: 10px;
-    width: 230px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+    background-color: #ffffff80;
+    color: #000;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
 }

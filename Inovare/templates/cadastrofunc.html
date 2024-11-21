@@ -6,23 +6,24 @@
     <title>Cadastro de Funcionários</title>
     {% load static %}
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='{%static 'css/cadastrofunc.css' %}'>
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/cadastrofunc.css' %}">
+    <script src='cadastroforn.js'></script>
 </head>
 <body>
     <header>
         <img class="img1" src="/static/images/logoBranca.png" alt="Logo">
         <h3>Inovare Estoque Almoxarifado</h3>
-        <a href="/inicioadmin/" class="botao-inicio">Voltar à Página Inicial</a>
+        <a href="paginainicial.html" class="botao-inicio">Voltar à Página Inicial</a>
     </header>
 
     <div class="main-container">
         <div class="image-barcode-container">
             <h1>Cadastro de Funcionários</h1>
-            <img src="/static/images/cadastro.png" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
+            <img src="/images/cadastro.png" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
         </div>
         <div class="form-container">
-            <form method="post">
-                {% csrf_token %}
+
+            <form method="get" action="paginainicial.html">
                 <input type="text" name="nome" placeholder="Nome" required>
                 <input type="text" name="Numero" placeholder="Número" required>
                 <input type="text" name="email" placeholder="Email" required>
@@ -34,7 +35,7 @@
                 <div class="button-container">
                     <input type="submit" value="Enviar" class="btn">
                     <input type="reset" value="Limpar" class="btn">
-                    <input type="button" value="Voltar" onclick="window.location.href='/inicioadmin/';" class="btn">
+                    <input type="button" value="Voltar" onclick="window.location.href='paginainicial.html';" class="btn">
                 </div>
             </form>
         </div>
@@ -46,9 +47,9 @@
             <div class="footer-left">
                 <ul class="contact-info">
                     <li>
-                        <a href="https://www.instagram.com/"><img src="/static/images/instagram.png" alt="Instagram"></a>
-                        <a href="https://www.facebook.com/"><img src="/static/images/facebook.png" alt="Facebook"></a>
-                        <a href="https://bsky.app/"><img src="/static/images/bluesky.png" alt="Bluesky"></a>
+                        <a href="https://www.instagram.com/"><img src="/images/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/"><img src="/images/facebook.png" alt="Facebook"></a>
+                        <a href="https://bsky.app/"><img src="/images/bluesky.png" alt="Bluesky"></a>
                     </li>
                     <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
                     <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
@@ -62,5 +63,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('imageSelector').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imageSelector').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>

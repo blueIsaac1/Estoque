@@ -1,16 +1,24 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
- body {
+
+body {
     font-family: "Montserrat", sans-serif;
     background-image: url('/static/images/fundoDeitado.png');
-    background-size: cover;
+    background-size: 100%;
     height: 100vh;
+    margin: 0;
+    display: block;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #000;
+    margin: 0;
 }
 
 header {
@@ -41,7 +49,7 @@ header h3 {
 }
 
 .botao-inicio {
-    background-color: #9d1d1d;
+    background-color: #681413;
     color: white;
     padding: 10px 10px;
     border: none;
@@ -53,7 +61,68 @@ header h3 {
 }
 
 .botao-inicio:hover {
-    background-color: #7a1414;
+    background-color: #9a1915;
+}
+
+footer {
+background-color: #000;
+color: white;
+padding: 20px 0;
+font-size: 14px;
+margin-top: 100px;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.footer-left ul {
+list-style: none;
+padding: 0;
+margin-left: 50px;
+}
+
+.footer-left ul li {
+margin-bottom: 10px;
+}
+
+.footer-left ul a {
+color: white;
+text-decoration: none;
+font-size: 18px;
+}
+
+.footer-right {
+width: 400px;
+font-size: 14px;
+line-height: 1.6;
+text-align: justify;
+margin-left: 50px;
+}
+
+.footer-right p {
+margin: 0;
+}
+
+.footer-left ul li img {
+width: 24px;
+height: 24px;
+margin-right: 10px;
+}
+
+.footer-center {
+text-align: center;
+flex: 1;
+}
+
+.img2 {
+    width: 12%;
+    height: auto; /* Mantém a proporção */
 }
 
 .main-container {
@@ -61,7 +130,7 @@ header h3 {
     align-items: flex-start;
     justify-content: flex-start;
     max-width: 900px;
-    margin: 120px auto 20px auto;
+    margin: 120px auto 20px auto; /* Margem superior ajustada para evitar sobreposição com o header fixo */
     overflow: hidden;
 }
 
@@ -71,8 +140,8 @@ header h3 {
     align-items: flex-start;
 }
 
-.image-barcode-container h1 {
-    margin-left:0;
+.image-barcode-container h1{
+    margin-left: 50px;
 }
 
 .cadastro-image {
@@ -83,14 +152,12 @@ header h3 {
     margin-bottom: 20px;
 }
 
-.form-container {
-    flex: 1;
+svg#barcode {
+    margin-top: 20px;
 }
 
-h1 {
-    font-size: 24px;
-    color: #000;
-    margin: 0;
+.form-container {
+    flex: 1;
 }
 
 form {
@@ -99,10 +166,10 @@ form {
     max-width: 500px;
 }
 
-input[type="text"], input[type="date"], input[type="email"], select {
+input[type="text"], select, input[type="number"], input[type="date"] {
     padding: 15px;
     margin-bottom: 10px;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     border-radius: 4px;
     width: 100%;
     font-size: 16px;
@@ -110,7 +177,7 @@ input[type="text"], input[type="date"], input[type="email"], select {
 
 input[type="submit"], input[type="button"], input[type="reset"] {
     padding: 15px;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     border-radius: 4px;
     cursor: pointer;
     background-color: #ffffff80;
@@ -125,79 +192,41 @@ input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hove
     color: #000;
 }
 
-.footer-container {
+.button-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
-.footer-left ul {
-    list-style: none;
-    padding: 0;
-}
 
-.footer-left ul li {
-    margin-bottom: 10px;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.footer-left ul a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
+    .form-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 
-.footer-right {
-    width: 400px;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: justify;
-    margin-left: 50px;
-}
+    footer {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 
-.footer-right p {
-    margin: 0;
-}
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.footer-left ul li img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
+    footer p {
+        text-align: center;
+    }
 
-.img2 {
-    width: 12%;
-    height: auto;
-}
-
-footer {
-    background-color: #000;
-    color: white;
-    padding: 20px 0;
-    font-size: 14px;
-    margin-top: 100px;
-}
-
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.alert.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.alert.warning {
-    background-color: #fff3cd;
-    color: #856404;
+    .cadastro-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }

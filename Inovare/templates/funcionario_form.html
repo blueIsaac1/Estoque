@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-{% load static %}
+<html lang='pt-BR'>
 <head>
-    <meta charset="UTF-8">
-    <title>Formulário de Funcionário</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Funcionario</title>
+    {% load static %}
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/funcionario_form.css' %}">
 </head>
 <body>
     <h1>{% if form.instance.pk %}Editar{% else %}Novo{% endif %} Funcionário</h1>
@@ -13,117 +16,5 @@
         <button type="submit">Salvar</button>
     </form>
     <a href="{% url 'funcionario_list' %}">Voltar</a>
-
 </body>
 </html>
-
-<style> 
-/* Estilizando o corpo da página */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f4f8; /* Tom suave e claro */
-}
-
-/* Estilizando o título */
-h1 {
-    color: #2c3e50; /* Cor escura */
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 2px solid #3498db; /* Linha embaixo do título */
-    padding-bottom: 10px; /* Espaçamento entre o título e a linha */
-}
-
-/* Estilizando o formulário */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 450px; /* Largura máxima do formulário */
-    margin: 0 auto;
-    background: white; /* Fundo branco para o formulário */
-    padding: 40px;
-    border-radius: 20px; /* Bordas arredondadas */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra suave */
-}
-
-/* Estilizando os campos do formulário */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: 100%; 
-    padding: 15px;
-    margin: 15px 0; /* Espaçamento entre os campos */
-    border: 2px solid #bdc3c7; 
-    border-radius: 10px; 
-    font-size: 1em; 
-    transition: border-color 0.3s, box-shadow 0.3s; 
-}
-
-input:focus,
-select:focus {
-    border-color: #3498db; /* Borda azul ao focar */
-    outline: none; 
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Sombra ao focar */
-}
-
-/* Estilizando o botão de salvar */
-button {
-    width: 100%; 
-    padding: 15px;
-    font-size: 1.2em;
-    color: white;
-    background-color: #e67e22; /* Laranja vibrante */
-    border: none;
-    border-radius: 10px; 
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; 
-}
-
-button:hover {
-    background-color: #d35400; /* Tom mais escuro ao passar o mouse */
-    transform: translateY(-3px); /* Efeito de elevação */
-}
-
-/* Estilizando o link de voltar */
-a {
-    display: block; 
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #3498db; /* Azul */
-    font-weight: bold;
-    transition: color 0.3s; 
-}
-
-a:hover {
-    color: #2980b9; /* Tom mais escuro ao passar o mouse */
-    text-decoration: underline; 
-}
-
-/* Estilizando mensagens de erro/sucesso (opcional) */
-.message {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
-}
-
-.success {
-    background-color: #d4edda; /* Fundo verde claro */
-    color: #155724; /* Texto verde escuro */
-}
-
-.error {
-    background-color: #f8d7da; /* Fundo vermelho claro */
-    color: #721c24; /* Texto vermelho escuro */
-}
-
-
-    </style>

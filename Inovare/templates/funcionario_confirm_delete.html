@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-{% load static %}
+<html lang='pt-BR'>
 <head>
-    <meta charset="UTF-8">
-    <title>Deletar Funcionário</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Funcionario</title>
+    {% load static %}
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{%static 'css/funcionario_confirm_delete.css' %}">
 </head>
 <body>
-    <img class="img1" src="/static/images/logoBranca.png" alt="Logo">
-    <h1>Deletar Funcionário</h1>
-    <p>Tem certeza que deseja deletar {{ funcionario.nome_funcionario }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmar</button>
-    </form>
-    <a href="{% url 'funcionario_list' %}">Cancelar</a>
-
+    <div class="header">
+        <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <h1>Deletar Funcionário</h1>
+    </div>
+    <div class="container">
+        <p>Tem certeza que deseja deletar {{ funcionario.nome_funcionario }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirmar</button>
+        </form>
+        <a href="{% url 'funcionario_list' %}">Cancelar</a>
+    </div>
+    
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-left">
@@ -28,7 +36,7 @@
                     <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
                 </ul>
             </div>
-            <img class="img2" src="/static/images/logoBranca.png" alt="Logo">
+            <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
             <div class="footer-right">
                 <p>
                     Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
@@ -38,115 +46,3 @@
     </footer>
 </body>
 </html>
-
-</body>
-</html>
-<style>
-   /* Estilizando o corpo da página */
-   body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Para empurrar o footer para o fundo */
-        }
-
-        /* Estilizando o título */
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        /* Estilizando o link para novo funcionário */
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilizando a lista de funcionários */
-        ul {
-            list-style-type: none; /* Remove os marcadores da lista */
-            padding: 0;
-        }
-
-        li {
-            background: #fff;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between; /* Alinha os itens da lista */
-        }
-
-        /* Estilizando os links de editar e deletar */
-        li a {
-            color: #dc3545; /* Cor vermelha para o link de deletar */
-        }
-
-        li a:hover {
-            color: #c82333; /* Tom mais escuro ao passar o mouse */
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .footer-left ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-left ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-left ul a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .footer-right {
-            width: 400px;
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: justify;
-            margin-left: 50px;
-        }
-
-        .footer-right p {
-            margin: 0;
-        }
-
-        .footer-left ul li img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .img2 {
-            width: 12%;
-            height: auto;
-        }
-
-        footer {
-            background-color: #000;
-            color: white;
-            padding: 20px 0;
-            font-size: 14px;
-            margin-top: auto; /* Empurra o footer para o fundo */
-        }
-    </style>

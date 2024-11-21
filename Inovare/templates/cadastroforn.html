@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cadastro de Fornecedores</title>
+    {% load static %}
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/cadastrofunc.css' %}">
+    <script src="{% static 'js/cadastroforn.js' %}"></script>
+</head>
+<body>
+<header>
+    <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+    <h3>Inovare Estoque Almoxarifado</h3>
+    <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+</header>
+
+<div class="main-container">
+
+    <div class="image-barcode-container">
+        <h1>Cadastro de Fornecedores</h1>
+        <img src="{% static 'images/cadastro.png' %}" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
+        <input type="file" id="fileInput" accept="image/*" capture="camera" style="display: none;">
+    </div>
+    <div class="form-container">
+        <form method="post" action="{% url 'cadastroforn' %}">
+            {% csrf_token %}
+            <input type="text" name="nome_fornecedor" placeholder="Nome:">
+            <br>
+            <input type="text" name="telefone" placeholder="Número:">
+            <br>
+            <input type="text" name="cnpj" placeholder="CNPJ:">
+            <br>
+            <input type="text" name="telefone" placeholder="Celular:">
+            <br>
+            <input type="text" name="endereco" placeholder="Endereço:">
+
+            <div class="button-container">
+                <input type="submit" value="Enviar" class="btn">
+                <input type="reset" value="Limpar" class="btn">
+                <input type="button" value="Voltar" onclick="window.location.href='{% url 'inicioadmin' %}';"
+                       class="btn">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <ul class="contact-info">
+                <li>
+                    <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}"
+                                                             alt="Facebook"></a>
+                    <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                </li>
+                <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+            </ul>
+        </div>
+        <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <div class="footer-right">
+            <p>
+                Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário,
+                recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade
+                eficiente e organizada dos suprimentos necessários para a operação da organização.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Adiciona evento de clique na imagem
+    document.getElementById('imageSelector').addEventListener('click', function () {
+        document.getElementById('fileInput').click(); // Simula o clique no input file invisível
+    });
+
+    // Adiciona evento para quando a imagem for selecionada ou capturada
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('imageSelector').src = e.target.result; // Atualiza a imagem com a nova foto
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+</body>
+</html>

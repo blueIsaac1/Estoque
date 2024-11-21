@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de Produto</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/movimentacao.css' %}">
+</head>
+<body>
+<header>
+    <img class="img1" src="{% static '/images/logoBranca.png' %}" alt="Logo">
+    <h3>Inovare Estoque Almoxarifado</h3>
+    <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+</header>
+
+<h1>Registrar Entrada de Produto</h1>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="produto">Produto:</label>
+    <select id="produto" name="produto" required>
+        {% for produto in produtos %}
+            <option value="{{ produto.id_produto }}">{{ produto.nomeprod }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="valor">Valor do Item:</label>
+    <input type="number" name="valor" id="valor" step="0.01" min="0" required>
+
+    <label for="quantidade">Entrada:</label>
+    <input type="number" name="entrada" id="entrada" min="1" required>
+
+    <label for="responsavel">Responsável:</label>
+    <select id="responsavel" name="responsavel" required>
+        {% for funcionario in funcionarios %}
+            <option value="{{ funcionario.id_funcionario }}">{{ funcionario.nome_funcionario }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="resumo">Resumo:</label>
+    <textarea name="resumo" id="resumo" class="resumo" rows="4" required></textarea>
+
+    <label for="analise_rapida">Análise Rápida:</label><br>
+    <input type="radio" id="analise_rapida_1" name="analise_rapida" value="True" required>
+    <label for="analise_rapida_1">Ativa</label><br>
+
+    <input type="radio" id="analise_rapida_2" name="analise_rapida" value="False">
+    <label for="analise_rapida_3">Inativa</label><br>
+
+    <label for="recomendacoes">Recomendações:</label>
+    <textarea name="recomendacoes" id="recomendacoes" class="recomendacao" rows="4" required></textarea>
+
+    <button type="submit">Registrar Entrada</button>
+</form>
+
+
+
+<br>
+<a href="{% url 'relatorio_movimentacoes' %}" class="botao-nova-movimentacao">Voltar para lista de produtos</a>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <ul class="contact-info">
+                <li>
+                    <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                </li>
+                <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+            </ul>
+        </div>
+        <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <div class="footer-right">
+            <p>
+                Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

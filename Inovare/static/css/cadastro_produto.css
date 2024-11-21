@@ -1,12 +1,11 @@
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
- * {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
- body {
+body {
     font-family: "Montserrat", sans-serif;
     background-image: url('/static/images/fundoDeitado.png');
     background-size: cover;
@@ -41,7 +40,7 @@ header h3 {
 }
 
 .botao-inicio {
-    background-color: #9d1d1d;
+    background-color: #681413;
     color: white;
     padding: 10px 10px;
     border: none;
@@ -53,7 +52,7 @@ header h3 {
 }
 
 .botao-inicio:hover {
-    background-color: #7a1414;
+    background-color: #9a1915;
 }
 
 .main-container {
@@ -72,7 +71,7 @@ header h3 {
 }
 
 .image-barcode-container h1 {
-    margin-left:0;
+    margin-left: 0px;
 }
 
 .cadastro-image {
@@ -99,7 +98,7 @@ form {
     max-width: 500px;
 }
 
-input[type="text"], input[type="date"], input[type="email"], select {
+input[type="text"], input[type="date"], input[type="number"], select {
     padding: 15px;
     margin-bottom: 10px;
     border: 1px solid #000;
@@ -121,8 +120,15 @@ input[type="submit"], input[type="button"], input[type="reset"] {
 }
 
 input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
     background-color: #ffffff80;
     color: #000;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-container {
@@ -178,26 +184,4 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     margin-top: 100px;
-}
-
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.alert.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.alert.warning {
-    background-color: #fff3cd;
-    color: #856404;
 }
