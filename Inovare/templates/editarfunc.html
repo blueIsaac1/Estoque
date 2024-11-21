@@ -1,10 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='pt-BR'>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Editar Funcionário</title>
+    {% load static %}
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/editarfunc.css" %}'>
+    <script src='{% static "js/editarfunc.js" %}'></script>
 </head>
 <body>
-$END$
+    <header>
+        <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <h3>Inovare Estoque Almoxarifado</h3>
+        <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+    </header>
+
+    <div class="main-container">
+        <div class="cadastro-section">
+            <h1 class="title">Editar Funcionário</h1>
+            <img src="{% static 'images/cadastroprod.png' %}" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
+        </div>
+
+        <div class="form-container">
+            <form method="post" action="{% url 'editar_funcionario' funcionario.id_funcionario %}">
+                {% csrf_token %}
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="id_nome_funcionario">Nome:</label></td>
+                            <td>{{ form.nome_funcionario }}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_numero">Número:</label></td>
+                            <td>{{ form.numero }}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_email">Email:</label></td>
+                            <td>{{ form.email }}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_data_nascimento">Data de Nascimento:</label></td>
+                            <td>{{ form.data_nascimento }}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_cpf">CPF:</label></td>
+                            <td>{{ form.cpf }}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_rg">Número de Registro (RG):</label></td>
+                            <td>{{ form.rg }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="button-container">
+                    <input type="submit" value="Enviar" class="btn">
+                    <input type="reset" value="Limpar" class="btn">
+                    <input type="button" value="Voltar" onclick="window.location.href='{% url 'editar' %}';" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <ul class="contact-info">
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                        <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                    </li>
+                    <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                    <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+                </ul>
+            </div>
+            <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+            <div class="footer-right">
+                <p>
+                    Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adiciona evento de clique na imagem
+        document.getElementById('imageSelector').addEventListener('click', function() {
+            document.getElementById('fileInput').click(); // Simula o clique no input file invisível
+        });
+
+        // Adiciona evento para quando a imagem for selecionada ou capturada
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imageSelector').src = e.target.result; // Atualiza a imagem com a nova foto
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>

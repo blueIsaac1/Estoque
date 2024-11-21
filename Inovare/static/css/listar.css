@@ -44,6 +44,85 @@ header h3 {
 }
 
 .botao-inicio {
+    background-color: #681413;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-inicio:hover {
+    background-color: #9a1915;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+    position: fixed;  /* Define o footer como fixo */
+    bottom: 0;        /* Coloca o footer na parte inferior da página */
+    width: 100%;      /* Garante que o footer ocupe toda a largura */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 50px;
+}
+
+.footer-left ul li {
+    margin-bottom: 10px;
+}
+
+.footer-left ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer-right {
+    width: 400px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.footer-right p {
+    margin: 0;
+}
+
+.footer-left ul li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.footer-center {
+    text-align: center;
+    flex: 1;
+}
+
+.img2 {
+    width: 12%;
+    height: auto;
+}
+
+.botao-inicio {
     background-color: #9d1d1d;
     color: white;
     padding: 10px 10px;
@@ -102,67 +181,6 @@ a {
 
 a:hover {
     text-decoration: underline; /* Sublinha ao passar o mouse */
-}
-
-footer {
-    background-color: #000;
-    color: white;
-    padding: 20px 0;
-    font-size: 14px;
-    margin-top: auto;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-left ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 50px;
-}
-
-.footer-left ul li {
-    margin-bottom: 10px;
-}
-
-.footer-left ul a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.footer-right {
-    width: 400px;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: justify;
-    margin-left: 50px;
-}
-
-.footer-right p {
-    margin: 0;
-}
-
-.footer-left ul li img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-.footer-center {
-    text-align: center;
-    flex: 1;
-}
-
-.img2 {
-    width: 12%;
-    height: auto;
 }
 
 .button-container {

@@ -1,5 +1,6 @@
 from django import forms
 from .models import Funcionario_2, Fornecedor_2, Produtos_2, Relatorio_2
+import uuid
 
 class FuncionarioForm(forms.ModelForm):
     class Meta:
@@ -12,9 +13,17 @@ class FornecedorForm(forms.ModelForm):
         fields = ['nome_fornecedor', 'cnpj', 'telefone', 'endereco']
 
 class ProdutosForm(forms.ModelForm):
+    fornecedor = forms.ModelChoiceField(
+        queryset=Fornecedor_2.objects.all(),
+        required=True,
+        label="Fornecedor",
+        empty_label="Selecione um fornecedor"
+    )
+
     class Meta:
         model = Produtos_2
-        fields = ['nomeprod', 'desc', 'cod_barra', 'quant', 'validade']
+        fields = ['nomeprod', 'desc', 'cod_barra', 'quant', 'validade', 'fornecedor']
+
 
 class RelatorioForm(forms.ModelForm):
     class Meta:
@@ -24,3 +33,5 @@ class RelatorioForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['responsavel'].queryset = Funcionario_2.objects.all()
+
+#Cria formulários baseados nos modelos Funcionario_2, Fornecedor_2, Produtos_2, e Relatorio_2

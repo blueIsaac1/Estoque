@@ -1,10 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Relatório Entrada e Saída de Produtos</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/relatorio.css' %}">
 </head>
 <body>
+    <header>
+        <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <h3>Inovare Estoque Almoxarifado</h3>
+        <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+    </header>
+<div class="main-container">
+<h2>Entradas Registradas</h2>
+    <table>
+    <thead>
+        <tr>
+            <th>Responsavel</th>
+            <th>Produto</th>
+            <th>Entrada</th>
 
+        </tr>
+    </thead>
+     <tbody>
+            {% for x in filtro_entrada %}
+            <tr>
+                <td>{{ x.responsavel }}</td>
+                <td>{{ x.produto.nomeprod }}</td>
+                <td>{{ x.entrada }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhuma entrada registrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Saídas Registradas</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Responsavel</th>
+            <th>Produto</th>
+            <th>Saida</th>
+        </tr>
+    </thead>
+        <tbody>
+            {% for saida in filtro_saida %}
+            <tr>
+                <td>{{ saida.responsavel }}</td>
+                <td>{{ saida.produto.nomeprod }}</td>
+                <td>{{ saida.saida }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhuma saída registrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <ul class="contact-info">
+                <li>
+                    <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                </li>
+                <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+            </ul>
+        </div>
+        <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <div class="footer-right">
+            <p>
+                Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+            </p>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

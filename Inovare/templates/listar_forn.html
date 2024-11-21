@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='pt-BR'>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Listar Fornecedores</title>
+    {% load static %}
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='{% static "css/listar.css" %}'>
 </head>
 <body>
-$END$
+    <header>
+        <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <h3>Inovare Estoque Almoxarifado</h3>
+        <a href="{% url 'editar' %}" class="botao-inicio">Voltar à Página Editar</a>
+    </header>
+
+    <div class="main-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Contato</th>
+                    <th>Email</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fornecedor in fornecedores %}
+                <tr>
+                    <td>{{ fornecedor.id_fornecedor }}</td>
+                    <td>{{ fornecedor.nome_fornecedor }}</td>
+                    <td>{{ fornecedor.cnpj }}</td>
+                    <td>{{ fornecedor.telefone }}</td>
+                    <td>{{ fornecedor.endereco }}</td>
+                    <td>
+                        <a href="{% url 'editar_fornecedor' fornecedor.id_fornecedor %}">Editar</a>
+                        <a href="{% url 'deletar_fornecedor' fornecedor.id_fornecedor %}">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <ul class="contact-info">
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                        <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                    </li>
+                    <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                    <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+                </ul>
+            </div>
+            <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+            <div class="footer-right">
+                <p>
+                    Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

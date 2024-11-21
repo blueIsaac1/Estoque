@@ -179,25 +179,3 @@ footer {
     font-size: 14px;
     margin-top: 100px;
 }
-
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.alert.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.alert.warning {
-    background-color: #fff3cd;
-    color: #856404;
-}

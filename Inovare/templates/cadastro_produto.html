@@ -1,301 +1,109 @@
 <!DOCTYPE html>
-<html lang='pt-BR'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cadastro de Produtos</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href=''>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/cadastro_produto.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="{% static 'js/cadastroprod.js' %}"></script>
 </head>
 <body>
-    <header>
-        <img class="img1" src="images/logoBranca.png" alt="Logo">
-        <h3>Inovare Estoque Almoxarifado</h3>
-        <a href="paginainicial.html" class="botao-inicio">Voltar à Página Inicial</a>
-    </header>
+<header>
+    <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+    <h3>Inovare Estoque Almoxarifado</h3>
+    <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+</header>
 
-    <div class="main-container">
+<div class="main-container">
 
-        <div class="image-barcode-container">
-            <h1>Cadastro de Produtos</h1>
-            <img src="/images/cadastroprod.png" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
-            <svg id="barcode"></svg>
-            <input type="file" id="fileInput" accept="image/*" capture="camera" style="display: none;">
-        </div>
-
-        <div class="form-container">
-
-            <form method="get" action="paginainicial.html">
-                <input type="text" name="nome" placeholder="Nome">
-                <br>
-                <input type="text" name="descricao" placeholder="Descrição">
-                <br>
-                <input type="text" name="codigo" placeholder="Código">
-                <br>
-                <input type="number" name="quantidade" placeholder="Quantidade">
-                <br>
-                <input type="date" id="validade" name="validade" required>
-                <br>
-                <input type="text" name="fornecedor" placeholder="Fornecedor">
-
-                <div class="button-container">
-                    <input type="submit" value="Enviar" class="btn">
-                    <input type="button" value="Voltar" onclick="window.location.href='paginainicial.html';" class="btn">
-                </div>
-            </form>
-        </div>
+    <div class="image-barcode-container">
+        <h1>Cadastro de Produtos</h1>
+        <img src="{% static 'images/cadastroprod.png' %}" alt="Imagem de Cadastro" class="cadastro-image" id="imageSelector">
+        <svg id="barcode"></svg>
+        <input type="file" id="fileInput" accept="image/*" capture="camera" style="display: none;">
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-left">
-                <ul class="contact-info">
-                    <li>
-                        <a href="https://www.instagram.com/"><img src="/images/instagram.png" alt="Instagram"></a>
-                        <a href="https://www.facebook.com/"><img src="/images/facebook.png" alt="Facebook"></a>
-                        <a href="https://bsky.app/"><img src="/images/bluesky.png" alt="Bluesky"></a>
-                    </li>
-                    <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
-                    <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
-                </ul>
+    <div class="form-container">
+
+        <form method="post" action="{% url 'cadastroproduto' %}">
+            {% csrf_token %}
+            <input type="text" name="nomeprod" placeholder="Nome" required>
+            <br>
+            <input type="text" name="desc" placeholder="Descrição" required>
+            <br>
+            <input type="text" name="cod_barra" placeholder="Código" required>
+            <br>
+            <input type="number" name="quant" placeholder="Quantidade" required>
+            <br>
+            <input type="date" id="validade" name="validade" required>
+            <br>
+            {{ form.fornecedor }}
+
+            <div class="button-container">
+                <input type="submit" value="Enviar" class="btn">
+                <input type="reset" value="Limpar" class="btn">
+                <input type="button" value="Voltar" onclick="window.location.href='{% url 'inicioadmin' %}';"
+                       class="btn">
             </div>
-            <img class="img2" src="images/logoBranca.png" alt="Logo">
-            <div class="footer-right">
-                <p>
-                    Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
-                </p>
-            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <ul class="contact-info">
+                <li>
+                    <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}"
+                                                             alt="Facebook"></a>
+                    <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                </li>
+                <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+            </ul>
         </div>
-    </footer>
+        <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <div class="footer-right">
+            <p>
+                Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário,
+                recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade
+                eficiente e organizada dos suprimentos necessários para a operação da organização.
+            </p>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        // Gera o código de barras após a imagem
-        JsBarcode("#barcode", "123456789012", {
-            format: "CODE128", // Define o formato do código de barras
-            width: 3,          // Largura de cada barra
-            height: 50,        // Altura do código de barras
-            displayValue: true // Exibe o valor numérico abaixo do código de barras
-        });
+<script>
+    // Gera o código de barras após a imagem
+    JsBarcode("#barcode", "123456789012", {
+        format: "CODE128", // Define o formato do código de barras
+        width: 3,          // Largura de cada barra
+        height: 50,        // Altura do código de barras
+        displayValue: true // Exibe o valor numérico abaixo do código de barras
+    });
 
-        // Adiciona evento de clique na imagem
-        document.getElementById('imageSelector').addEventListener('click', function() {
-            document.getElementById('fileInput').click(); // Simula o clique no input file invisível
-        });
+    // Adiciona evento de clique na imagem
+    document.getElementById('imageSelector').addEventListener('click', function () {
+        document.getElementById('fileInput').click(); // Simula o clique no input file invisível
+    });
 
-        // Adiciona evento para quando a imagem for selecionada ou capturada
-        document.getElementById('fileInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('imageSelector').src = e.target.result; // Atualiza a imagem com a nova foto
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+    // Adiciona evento para quando a imagem for selecionada ou capturada
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('imageSelector').src = e.target.result; // Atualiza a imagem com a nova foto
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 </body>
 </html>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Montserrat", sans-serif;
-    background-image: url('/images/fundoDeitado.png');
-    background-size: 100%;
-    height: 100vh;
-    margin: 0;
-    display: block;
-}
-
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    color: #000;
-    margin: 0;
-}
-
-header {
-    background-color: #000;
-    color: white;
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    position: relative;
-}
-
-.img1 {
-    width: 15%;
-    max-width: 100px;
-    height: auto;
-}
-
-header h3 {
-    font-size: 20px;
-    text-transform: uppercase;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.botao-inicio {
-    background-color: #9d1d1d;
-    color: white;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.botao-inicio:hover {
-    background-color: #7a1414;
-}
-
-
-footer {
-background-color: #000;
-color: white;
-padding: 20px 0;
-font-size: 14px;
-margin-top: 50px;
-}
-
-.footer-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-}
-
-.footer-left ul {
-list-style: none;
-padding: 0;
-margin-left: 50px;
-}
-
-.footer-left ul li {
-margin-bottom: 10px;
-}
-
-.footer-left ul a {
-color: white;
-text-decoration: none;
-font-size: 18px;
-}
-
-.footer-right {
-width: 400px;
-font-size: 14px;
-line-height: 1.6;
-text-align: justify;
-margin-left: 50px;
-}
-
-.footer-right p {
-margin: 0;
-}
-
-.footer-left ul li img {
-width: 24px;
-height: 24px;
-margin-right: 10px;
-}
-
-.footer-center {
-text-align: center;
-flex: 1;
-}
-
-.img2 {
-    width: 12%;
-    height: auto; /* Mantém a proporção */
-}
-
-.main-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: 900px;
-    margin: 120px auto 20px auto; /* Margem superior ajustada para evitar sobreposição com o header fixo */
-    overflow: hidden;
-}
-
-.image-barcode-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.image-barcode-container h1{
-    margin-left: 50px;
-}
-
-.cadastro-image {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-    margin-right: 100px;
-    margin-bottom: 20px;
-}
-
-svg#barcode {
-    margin-top: 20px;
-}
-
-.form-container {
-    flex: 1;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-}
-
-input[type="text"], select, input[type="number"], input[type="date"] {
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 16px;
-}
-
-input[type="submit"], input[type="button"] {
-    padding: 15px;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #ffffff60;
-    color: #000;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
-    background-color: #dddddd41;
-    color: #000;
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-</style>

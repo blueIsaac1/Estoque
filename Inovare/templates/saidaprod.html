@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movimentação de Produtos</title>
+    <title>Saída de Produto</title>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/movimentacao.css' %}">
@@ -12,10 +12,10 @@
 <header>
     <img class="img1" src="{% static '/images/logoBranca.png' %}" alt="Logo">
     <h3>Inovare Estoque Almoxarifado</h3>
-    <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+    <a href="{% url 'movimentacoes' %}" class="botao-inicio">Voltar à Página de Movimentações</a>
 </header>
 
-<h1>Movimentação de Produtos</h1>
+<h1>Registrar Saída de Produto</h1>
 
 <form method="post">
     {% csrf_token %}
@@ -27,11 +27,11 @@
         {% endfor %}
     </select>
 
-    <label for="entrada">Entrada:</label>
-    <input type="number" name="entrada" id="entrada" min="0" required>
+    <label for="valor">Valor do Item:</label>
+    <input type="number" name="valor" id="valor" step="0.01" min="0" required>
 
-    <label for="saida">Saída:</label>
-    <input type="number" name="saida" id="saida" min="0" required>
+    <label for="quantidade">Saída:</label>
+    <input type="number" name="saida" id="saida" min="1" required>
 
     <label for="responsavel">Responsável:</label>
     <select id="responsavel" name="responsavel" required>
@@ -43,12 +43,6 @@
     <label for="resumo">Resumo:</label>
     <textarea name="resumo" id="resumo" class="resumo" rows="4" required></textarea>
 
-    <label for="total_itens">Total de Itens:</label>
-    <input type="number" name="total_itens" id="total_itens" min="0" required>
-
-    <label for="valor_total">Valor Total:</label>
-    <input type="number" name="valor_total" id="valor_total" step="0.01" min="0" required>
-
     <label for="analise_rapida">Análise Rápida:</label><br>
     <input type="radio" id="analise_rapida_1" name="analise_rapida" value="True" required>
     <label for="analise_rapida_1">Ativa</label><br>
@@ -59,10 +53,10 @@
     <label for="recomendacoes">Recomendações:</label>
     <textarea name="recomendacoes" id="recomendacoes" class="recomendacao" rows="4" required></textarea>
 
-    <button type="submit">Registrar Movimentação</button>
+    <button type="submit">Registrar Saída</button>
 </form>
 
-
+<br>
 <a href="{% url 'relatorio_movimentacoes' %}" class="botao-nova-movimentacao">Voltar para lista de produtos</a>
 
 <footer>

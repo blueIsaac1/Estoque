@@ -36,7 +36,7 @@ class Produtos_2(models.Model):
     id_produto = models.AutoField(primary_key=True)
     nomeprod = models.CharField(max_length=100)
     desc = models.TextField()
-    cod_barra = models.UUIDField(unique=True, default=uuid.uuid4)
+    cod_barra = models.CharField(max_length=50, unique=True)  # Alterado para CharField
     quant = models.IntegerField()
     validade = models.DateTimeField(blank=True)
     fornecedor = models.ForeignKey(Fornecedor_2, on_delete=models.CASCADE)
@@ -48,6 +48,7 @@ class Produtos_2(models.Model):
         verbose_name = "Produto_2"
         verbose_name_plural = "Produtos_2"
 
+
 class Relatorio_2(models.Model):
     id_relatorio = models.AutoField(primary_key=True)
     data_relat = models.DateTimeField(auto_now_add=True)
@@ -55,8 +56,8 @@ class Relatorio_2(models.Model):
     resumo = models.TextField()
     total_itens = models.IntegerField()
     valor_total = models.DecimalField(max_digits=10, decimal_places=2)
-    entrada = models.IntegerField()
-    saida = models.IntegerField()
+    entrada = models.IntegerField(null=True,blank=True)
+    saida = models.IntegerField(null=True,blank=True)
     analise_rapida = models.BooleanField(default=False)
     recomendacoes = models.TextField(blank=True)
     produto = models.ForeignKey(Produtos_2, on_delete=models.CASCADE, default=False)
@@ -68,4 +69,6 @@ class Relatorio_2(models.Model):
         verbose_name = "Relatório_2"
         verbose_name_plural = "Relatórios_2"
         ordering = ['-data_relat']
-        
+
+#Define quatro modelos no Django, que representam entidades como Funcionários, Fornecedores, Produtos e Relatórios.
+#O Django usa esses modelos para criar automaticamente as tabelas correspondentes no banco de dados.
