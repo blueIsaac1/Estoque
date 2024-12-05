@@ -112,7 +112,7 @@ input[type="submit"], input[type="button"], input[type="reset"] {
     border: 1px solid #000;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #ffffff80;
+    background-color: #878787;
     color: #000;
     font-size: 16px;
     margin-top: 10px;
@@ -124,7 +124,7 @@ input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hove
     border: 1px solid #000;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #ffffff80;
+    background-color: #878787;
     color: #000;
     font-size: 16px;
     margin-top: 10px;

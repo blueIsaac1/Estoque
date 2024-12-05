@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/galeria.css' %}">
+</head>
+<body>
+<header>
+        <img class="img1" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+        <h3>Inovare Estoque Almoxarifado</h3>
+        <a href="{% url 'inicioadmin' %}" class="botao-inicio">Voltar à Página Inicial</a>
+    </header>
+
+<div class="gallery-container">
+    <h1>Galeria</h1>
+    <button class="upload-button">Adicionar Foto</button>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <div class="gallery-section">
+        <h2>Produtos</h2>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Imagens adicionadas/carregadas -->
+        </div>
+    </div>
+</div>
+
+<footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <ul class="contact-info">
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                        <a href="https://bsky.app/"><img src="{% static 'images/bluesky.png' %}" alt="Bluesky"></a>
+                    </li>
+                    <li><a href="mailto:inovarealmoxarifado0102@gmail.com">inovarealmoxarifado0102@gmail.com</a></li>
+                    <li><a href="tel:+5517994578543">(17) 9945-75843</a></li>
+                </ul>
+            </div>
+            <img class="img2" src="{% static 'images/logoBranca.png' %}" alt="Logo">
+            <div class="footer-right">
+                <p>
+                    Nosso papel é gerenciar e controlar materiais, incluindo armazenamento, controle de inventário, recebimento e conferência, distribuição e manutenção de registros, para garantir a disponibilidade eficiente e organizada dos suprimentos necessários para a operação da organização.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+      const galleryGrid = document.getElementById('galleryGrid');
+
+    // Função para carregar imagens do Local Storage
+    function loadImages() {
+        const storedImages = JSON.parse(localStorage.getItem('galleryImages')) || [];
+        storedImages.forEach(item => {
+            addImageToGallery(item.src, item.title);
+        });
+    }
+
+    // Função para adicionar imagem à galeria e no Local Storage
+    function addImageToGallery(src, title = "") {
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('image-container');
+
+        const imgElement = document.createElement('img');
+        imgElement.src = src;
+        imgElement.alt = title || "Nova Imagem";
+        imageContainer.appendChild(imgElement);
+
+        const titleElement = document.createElement('div');
+        titleElement.classList.add('title');
+        titleElement.textContent = title || "Sem título";
+        imageContainer.appendChild(titleElement);
+
+        // Tornar o título editável
+        imageContainer.addEventListener('click', () => {
+            const newTitle = prompt("Digite o título da imagem:", titleElement.textContent);
+            if (newTitle !== null) {
+                titleElement.textContent = newTitle;
+                updateTitleInLocalStorage(src, newTitle);
+            }
+        });
+
+        galleryGrid.appendChild(imageContainer);
+    }
+
+    // Função para atualizar o título da imagem no Local Storage
+    function updateTitleInLocalStorage(src, newTitle) {
+        const storedImages = JSON.parse(localStorage.getItem('galleryImages')) || [];
+        const updatedImages = storedImages.map(item => {
+            if (item.src === src) {
+                item.title = newTitle;
+            }
+            return item;
+        });
+        localStorage.setItem('galleryImages', JSON.stringify(updatedImages));
+    }
+
+    // Carregar imagens ao abrir a página
+    window.addEventListener('load', loadImages);
+
+    // Acionar o input de arquivo ao clicar no botão de adicionar foto
+    document.querySelector('.upload-button').addEventListener('click', () => {
+        document.getElementById('fileInput').click();
+    });
+
+    // Lidar com a seleção do arquivo
+    document.getElementById('fileInput').addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const src = e.target.result;
+                const title = prompt("Digite o título para a imagem:");
+
+                // Adicionar a imagem e título à galeria
+                addImageToGallery(src, title);
+
+                // Armazenar a imagem e o título no Local Storage
+                const storedImages = JSON.parse(localStorage.getItem('galleryImages')) || [];
+                storedImages.push({ src: src, title: title || "Sem título" });
+                localStorage.setItem('galleryImages', JSON.stringify(storedImages));
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert("Nenhum arquivo selecionado.");
+        }
+    });
+</script>
+</body>
+</html>

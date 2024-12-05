@@ -105,22 +105,32 @@ footer {
 .quem-somos {
     display: flex;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 20px 100px;
+    border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
+    max-width: none;
+    margin: 20px 0;
     gap: 5%;
+    box-sizing: border-box;
+    justify-content: center;
 }
 
 .quem-somos img {
-    width: 60%;
+    width: 40%;
     margin-right: 20px;
+    object-fit: cover;
 }
 
 .descricao {
     flex: 1;
+}
+
+.descricao p {
+    font-size: 1.8em;
+    line-height: 1.6;
+    margin-top: 20px;
+    color: #000000;
 }
 
 .descricao h2 {
@@ -134,7 +144,7 @@ footer {
     padding: 10px 30px;
     border-color: #000000;
     border-radius: 10px;
-    background-color: #ffffff80;
+    background-color: rgba(135, 135, 135, 0.4);
     color: #000000;
     font-size: 16px;
     cursor: pointer;

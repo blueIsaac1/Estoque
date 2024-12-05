@@ -134,35 +134,35 @@ h2 {
 .content-container {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza verticalmente */
+    align-items: center;
     margin-top: 20px;
-    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se necessário */
+    flex-wrap: wrap;
 }
 
 .item-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px; /* Margem ao redor de cada item */
-    text-align: center; /* Centraliza o texto do botão */
+    margin: 20px;
+    text-align: center;
 }
 
 .img4, .img5, .img6 {
-    width: 250px; /* Aumentado para maior visibilidade */
-    height: 250px; /* Aumentado para maior visibilidade */
+    width: 250px;
+    height: 250px;
     margin-bottom: 10px;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px;
 }
 
 button {
     padding: 10px 30px;
     border-color: #000000;
     border-radius: 10px;
-    background-color: #ffffff80;
+    background-color: rgba(135, 135, 135, 0.4);
     color: #000000;
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
-    width: 250px; /* Aumentado para corresponder à largura das imagens */
-    transition: background-color 0.3s; /* Adicionando transição */
+    width: 250px;
+    transition: background-color 0.3s;
 }

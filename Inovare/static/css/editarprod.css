@@ -5,7 +5,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: "Montserrat", sans-serif;
     background-image: url('/static/images/fundoDeitado.png');
@@ -122,7 +121,7 @@ flex: 1;
 
 .img2 {
     width: 12%;
-    height: auto; /* Mantém a proporção */
+    height: auto;
 }
 
 .main-container {
@@ -130,7 +129,7 @@ flex: 1;
     align-items: flex-start;
     justify-content: flex-start;
     max-width: 900px;
-    margin: 120px auto 20px auto; /* Margem superior ajustada para evitar sobreposição com o header fixo */
+    margin: 120px auto 20px auto;
     overflow: hidden;
 }
 
@@ -169,7 +168,7 @@ form {
 input[type="text"], select, input[type="number"], input[type="date"] {
     padding: 15px;
     margin-bottom: 10px;
-    border: 1px solid #000000;
+    border: 1px solid #878787;
     border-radius: 4px;
     width: 100%;
     font-size: 16px;
@@ -180,7 +179,7 @@ input[type="submit"], input[type="button"], input[type="reset"] {
     border: 1px solid #000000;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #ffffff80;
+    background-color: #878787;
     color: #000;
     font-size: 16px;
     margin-top: 10px;
@@ -188,7 +187,7 @@ input[type="submit"], input[type="button"], input[type="reset"] {
 }
 
 input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
-    background-color: #ffffff80;
+    background-color: #878787;
     color: #000;
 }
 
@@ -198,7 +197,6 @@ input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hove
 }
 
 
-/* Responsividade */
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;

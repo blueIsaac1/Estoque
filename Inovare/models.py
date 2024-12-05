@@ -36,7 +36,7 @@ class Produtos_2(models.Model):
     id_produto = models.AutoField(primary_key=True)
     nomeprod = models.CharField(max_length=100)
     desc = models.TextField()
-    cod_barra = models.CharField(max_length=50, unique=True)  # Alterado para CharField
+    cod_barra = models.CharField(max_length=50, unique=True)
     quant = models.IntegerField()
     validade = models.DateTimeField(blank=True)
     fornecedor = models.ForeignKey(Fornecedor_2, on_delete=models.CASCADE)

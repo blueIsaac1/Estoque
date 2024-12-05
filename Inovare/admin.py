@@ -6,4 +6,4 @@ admin.site.register(Fornecedor_2)
 admin.site.register(Produtos_2)
 admin.site.register(Relatorio_2)
 
-#Permite que você gerencie o  s dados do banco de dados, através de uma interface gráfica.
+#Permite que você gerencie os dados do banco de dados, através de uma interface gráfica.

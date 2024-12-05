@@ -65,6 +65,10 @@ def editar(request):
 def movimentacao(request):
     return render(request, 'movimentacoes.html')
 
+# Galeria View
+def galeria(request):
+    return render(request, 'galeria_imagem.html')
+
 # Cadastrar Funcionário
 def cadastrar_func(request):
     logger.info("Iniciando o cadastro de funcionário.")
