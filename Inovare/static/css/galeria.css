@@ -146,9 +146,10 @@ footer {
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
+
         }
         .image-container {
-            width: 150px;
+            width: auto;
             height: auto;
             border: 1px solid #681413;
             background-color: rgba(255, 255, 255, 0.58);

@@ -10,7 +10,7 @@ body {
     background-image: url('/static/images/fundoDeitado.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -64,9 +64,13 @@ footer {
     color: white;
     padding: 20px 0;
     font-size: 14px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.main-container {
+    flex: 1;
 }
 
 .footer-container {

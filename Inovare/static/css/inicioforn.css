@@ -104,7 +104,7 @@ footer {
 
 .quem-somos {
     display: flex;
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 20px 100px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -130,7 +130,7 @@ footer {
     font-size: 1.8em;
     line-height: 1.6;
     margin-top: 20px;
-    color: #878787;
+    color: #000000;
 }
 
 .descricao h2 {
